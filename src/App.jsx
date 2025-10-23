@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route element={<RequireAuth />}>
           <Route path="/contents" element={<Contents />} />
-          <Route path="/contents/:id" element={<ContentDetail />} />
+          <Route path="/contents/:slug" element={<ContentDetail />} />
         </Route>
         <Route path="/oauth/callback" element={<OAuthCallback />} />
       </Routes>
