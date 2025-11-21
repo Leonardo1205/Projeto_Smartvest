@@ -21,7 +21,7 @@ export default function Register() {
     setError('')
     try {
       await register(nickname, email, password)
-      await login(email, password) // loga automaticamente
+      await login(email, password) 
       nav('/contents')
     } catch {
       setError('Não foi possível criar a conta (e-mail já usado).')

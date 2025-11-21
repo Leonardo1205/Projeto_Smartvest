@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
@@ -21,31 +20,41 @@ export default function Login() {
   }
 
   const handleGoogleLogin = () => {
-     const base = import.meta.env.VITE_API_URL;
-    window.location.href = `${base}/auth/google`
-  }
+    const base = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+    window.location.href = `${base}/api/v1/auth/google`;
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-400 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-600 to-blue-400 p-4">
+      
+      <div className="mb-8 text-center max-w-lg">
+        <h1 className="text-4xl font-bold text-white mb-4 drop-shadow-md">
+          SmartVest
+        </h1>
+        <p className="text-white text-lg font-medium drop-shadow-sm">
+          Bem vindo ao SmartVest, uma alternativa para aprender conceitos do mundo dos investimentos de uma forma simples e interativa.
+        </p>
+      </div>
+
       <div className="bg-white rounded-xl shadow-lg max-w-md w-full p-6">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Login</h2>
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block mb-1">Usuário (e-mail)</label>
+            <label className="block mb-1 font-medium text-gray-700">Usuário (e-mail)</label>
             <input
               type="email"
-              className="w-full border px-3 py-2 rounded"
+              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
             />
           </div>
           <div>
-            <label className="block mb-1">Senha</label>
+            <label className="block mb-1 font-medium text-gray-700">Senha</label>
             <input
               type="password"
-              className="w-full border px-3 py-2 rounded"
+              className="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
@@ -55,7 +64,7 @@ export default function Login() {
           <button
             type="button"
             onClick={handleGoogleLogin}
-            className="w-full flex items-center justify-center gap-3 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+            className="w-full flex items-center justify-center gap-3 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
             aria-label="Login com Google"
           >
             <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
@@ -74,9 +83,9 @@ export default function Login() {
             </Link>
           </p>
 
-          {error && <p className="text-sm text-red-600">{error}</p>}
+          {error && <p className="text-sm text-red-600 text-center">{error}</p>}
 
-          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 font-semibold transition-colors">
             Entrar
           </button>
         </form>
@@ -84,4 +93,3 @@ export default function Login() {
     </div>
   )
 }
-

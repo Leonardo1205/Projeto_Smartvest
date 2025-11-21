@@ -2,12 +2,12 @@
 export const TOPICS = [
   { slug: "renda-fixa-vs-variavel",
     title: "Renda fixa x renda variável",
-    subtitle: "Entenda as características dos investimentos",
+    subtitle: "Entenda mais sobre as duas principais modalidades de investimentos",
     sources: [
       "https://www.gov.br/investidor/pt-br/investir/antes-de-investir/entenda-as-caracteristicas-dos-investimentos",
     ],
   },
-  { slug: "risco-e-retorno",
+  { slug: "risco-vs-retorno",
     title: "Risco e a relação risco x retorno",
     subtitle: "Como risco e retorno se relacionam",
     sources: [
@@ -21,9 +21,9 @@ export const TOPICS = [
       "https://www.gov.br/investidor/pt-br/investir/antes-de-investir/entenda-as-caracteristicas-dos-investimentos",
     ],
   },
-  { slug: "como-funciona-a-bolsa",
+  { slug: "bolsa-de-valores",
     title: "Como funciona a bolsa",
-    subtitle: "Regras básicas e funcionamento",
+    subtitle: "Regras básicas e funcionamento da bolsa",
     sources: [
       "https://www.gov.br/investidor/pt-br/investir/como-investir/como-funciona-a-bolsa",
     ],
@@ -38,7 +38,7 @@ export const TOPICS = [
     subtitle: "Estrutura e riscos",
     sources: ["https://www.gov.br/investidor/pt-br/investir/tipos-de-investimentos/fidcs"],
   },
-  { slug: "fiis",
+  { slug: "fundos-imobiliarios",
     title: "Fundos de Investimentos Imobiliários (FII)",
     subtitle: "Renda com imóveis via fundos",
     sources: [
@@ -54,7 +54,7 @@ export const TOPICS = [
     title: "Fundos de Investimentos",
     subtitle: "Conceitos gerais de fundos",
     sources: [
-      "https://www.gov.br/investidor/pt-br/investir/tipos-de-investimentos/fundos-de-investimentos",
+      "https://www.gov.br/investidor/pt-br/investir/tipos-de-investimentos/fundos-de-investimentos"
     ],
   },
   { slug: "acoes",
@@ -71,21 +71,21 @@ export const TOPICS = [
       "https://www.gov.br/investidor/pt-br/investir/tipos-de-investimentos/titulos-publicos/tesouro-selic",
     ],
   },
-  { slug: "tesouro-pre",
+  { slug: "tesouro-pre-fixado",
     title: "Títulos Públicos - Tesouro Pré-fixado",
     subtitle: "Títulos com taxa fixa",
     sources: [
       "https://www.gov.br/investidor/pt-br/investir/tipos-de-investimentos/titulos-publicos/tesouro-pre-fixado",
     ],
   },
-  { slug: "tesouro-ipca",
+  { slug: "tesouro-ipca+",
     title: "Títulos Públicos - Tesouro IPCA+",
     subtitle: "Proteção contra inflação",
     sources: [
       "https://www.gov.br/investidor/pt-br/investir/tipos-de-investimentos/titulos-publicos/tesouro-ipca",
     ],
   },
-  { slug: "poupanca",
+  { slug: "caderneta-de-poupanca",
     title: "Caderneta de poupança",
     subtitle: "Regras e características",
     sources: ["https://www.gov.br/investidor/pt-br/investir/tipos-de-investimentos/titulos-bancarios"],

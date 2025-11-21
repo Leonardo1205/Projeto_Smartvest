@@ -3,10 +3,31 @@ import { useParams, Link } from 'react-router-dom'
 import ChatbotWidget from '../components/ChatbotWidget'
 import { TOPICS } from '../data/topics'
 
+const TOPIC_VIDEOS = {
+  "renda-fixa-vs-variavel": "9T6OOSRWSZI",
+  "risco-vs-retorno": "5rHUluawbi0",       
+  "liquidez": "7NkvpkUBARc",               
+  "bolsa-de-valores": "8K_eJ_8vqHM",
+  "fips": "LqY66hH9TcU", 
+  "fidcs": "QmXUEnizap4",
+  "fundos-imobiliarios": "z6uxHx-2Gcw",
+  "etfs": "pRxzYxZ9myk",
+  "fundos-de-investimentos": "IoAfqDAY6bM",
+  "acoes": "opcvBOwASqE",
+  "tesouro-selic": "Dugg9Eb_mhw",
+  "tesouro-pre-fixado": "lnDIecuFLk0",
+  "tesouro-ipca+": "xxmQz3DO-5E",
+  "caderneta-de-poupanca": "hlI_SupDcpE",
+  "cdb": "zkcpFhsgOaY",
+  "lci-lca": "pW6IHuR5Ugw"
+};
+
 export default function ContentDetail() {
   const { slug } = useParams()
 
   const topic = useMemo(() => TOPICS.find(t => t.slug === slug), [slug])
+
+  const videoId = TOPIC_VIDEOS[slug];
 
   if (!topic) {
     return (
@@ -25,27 +46,27 @@ export default function ContentDetail() {
         <h1 className="text-3xl font-bold">{topic.title}</h1>
         <p className="text-gray-700">{topic.subtitle}</p>
 
-        <div className="bg-white p-4 rounded shadow">
-          <h2 className="font-semibold mb-2">Fontes oficiais</h2>
-          <ul className="list-disc pl-5 space-y-1">
-            {topic.sources.map((u) => (
-              <li key={u}>
-                <a href={u} target="_blank" rel="noreferrer" className="text-blue-600 underline">
-                  {u}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        <div className="aspect-video bg-blue-200 rounded flex items-center justify-center">
-          <span className="text-white text-xl">Vídeo Embed Aqui</span>
+        <div className="aspect-video bg-black rounded overflow-hidden shadow-lg">
+          {videoId ? (
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              style={{ border: 'none' }}
+              title={`Vídeo sobre ${topic.title}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+              <span>Vídeo indisponível para este tópico.</span>
+            </div>
+          )}
         </div>
       </div>
 
       <aside className="lg:col-span-1">
-        {/* mantém a API do seu ChatbotWidget como está */}
-        <ChatbotWidget context={topic.title} />
+        <ChatbotWidget topicSlug={slug} context={topic.title} />
       </aside>
     </div>
   )

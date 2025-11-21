@@ -12,7 +12,6 @@ export default function OAuthCallback() {
     const t = sp.get('token')
     if (t) {
       applyToken(t)
-      // opcional: preencher o contexto chamando /auth/me
       api.get('/auth/me').finally(() => nav('/contents'))
     } else {
       nav('/')

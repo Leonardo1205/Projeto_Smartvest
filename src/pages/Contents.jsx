@@ -18,7 +18,7 @@ export default function Contents() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">
-      <h1 className="text-3xl font-bold mb-6">Conteúdos</h1>
+      <h1 className="text-3xl font-bold mb-6">Navegue entre os principais tópicos</h1>
       
       <div className="space-y-4">
         {items.map(c => (
